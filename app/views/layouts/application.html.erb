@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DeviseModal</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= link_to "Sign in", "#sign_in", "data-toggle" => "modal", :class => 'btn btn-small' %>
+  <%= link_to "Sign up", "#sign_up", "data-toggle" => "modal", :class => 'btn btn-small' %>
+  <%= render 'shared/sign_in' %>
+  <%= render 'shared/sign_up' %>
+  <%= yield %>
+</body>
+</html>
