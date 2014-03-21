@@ -12,5 +12,5 @@ $ ->
       ).join "<br/>"
     else
       "Unknown error"
-    $(this).parents('.modal').children('.modal-footer').html(error_messages)
+    $(this).parents('.modal').children('.modal-footer').html("<div class='alert alert-danger pull-left'>" + error_messages + "</div>")
   )
