@@ -4,5 +4,13 @@ $ ->
     $('#sign_in_button').hide()
     return
   ).bind("ajax:error", (event, xhr, settings, exceptions) ->
-    alert("Error")
+    error_messages = if xhr.responseJSON['error']
+      xhr.responseJSON['error']
+    else if xhr.responseJSON['errors']
+      $.map(xhr.responseJSON["errors"], (k, v) ->
+        v + " " + k
+      ).join "<br/>"
+    else
+      "Unknown error"
+    $(this).parents('.modal').children('.modal-footer').html(error_messages)
   )
